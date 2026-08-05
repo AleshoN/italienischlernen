@@ -1,9 +1,12 @@
 name: Geprüftes Release
 
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version ohne führendes v, zum Beispiel 1.1.0'
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -29,7 +32,7 @@ jobs:
       - name: Releasepaket erstellen
         shell: bash
         run: |
-          VERSION="${GITHUB_REF_NAME#v}"
+          VERSION="${{ inputs.version }}"
           zip -r "piano-italienisch-${VERSION}.zip" \
             .github public scripts src \
             CHANGELOG.md OPEN_DATA.md README.md RELEASE_NOTES_1.0.0.md TESTS.md \
@@ -39,8 +42,10 @@ jobs:
       - name: GitHub Release veröffentlichen
         env:
           GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
         run: >-
-          gh release create "$GITHUB_REF_NAME"
-          "piano-italienisch-${GITHUB_REF_NAME#v}.zip"
-          --title "Piano ${GITHUB_REF_NAME#v}"
+          gh release create "v${VERSION}"
+          "piano-italienisch-${VERSION}.zip"
+          --target main
+          --title "Piano ${VERSION}"
           --notes-file RELEASE_NOTES_1.0.0.md
