@@ -2,6 +2,10 @@ import { readFile, stat } from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 
 const root = resolve(process.cwd())
+const expectedBase = process.argv[2] ?? '/'
+const normalizedBase = expectedBase.endsWith('/')
+  ? expectedBase
+  : `${expectedBase}/`
 const read = (path) => readFile(join(root, path), 'utf8')
 const checks = []
 const check = (condition, message) => {
@@ -13,13 +17,13 @@ const packageJson = JSON.parse(await read('package.json'))
 const manifest = JSON.parse(await read('dist/manifest.webmanifest'))
 const index = await read('dist/index.html')
 const serviceWorker = await read('dist/sw.js')
-const cssPath = index.match(/href="(\/assets\/[^"?]+\.css)"/)?.[1]
-const scriptPath = index.match(/src="(\/assets\/[^"?]+\.js)"/)?.[1]
+const cssPath = index.match(/href="([^"?]*\/assets\/[^"?]+\.css)"/)?.[1]
+const scriptPath = index.match(/src="([^"?]*\/assets\/[^"?]+\.js)"/)?.[1]
 
-check(packageJson.version === '1.0.0', 'Paketversion ist 1.0.0')
+check(packageJson.version === '1.0.1', 'Paketversion ist 1.0.1')
 check(
-  manifest.start_url === '/#/' && manifest.scope === '/',
-  'PWA-Start und Gültigkeitsbereich sind korrekt',
+  manifest.start_url === './#/' && manifest.scope === './',
+  'PWA-Start und Gültigkeitsbereich sind installationsunabhängig',
 )
 check(manifest.display === 'standalone', 'PWA startet eigenständig')
 check(
@@ -27,7 +31,7 @@ check(
   'PWA-Symbol ist eingetragen',
 )
 check(
-  serviceWorker.includes('piano-app-v1.0.0-r1'),
+  serviceWorker.includes('piano-app-v1.0.1-r1'),
   'Service-Worker verwendet den Releasecache',
 )
 check(
@@ -37,18 +41,24 @@ check(
 check(index.includes('<html lang="de">'), 'Dokumentsprache ist Deutsch')
 check(index.includes('width=device-width'), 'Mobil-Viewport ist gesetzt')
 check(Boolean(cssPath && scriptPath), 'Build verweist auf CSS und JavaScript')
+check(
+  cssPath?.startsWith(`${normalizedBase}assets/`) &&
+    scriptPath?.startsWith(`${normalizedBase}assets/`),
+  `Build verwendet den vorgesehenen Basispfad ${normalizedBase}`,
+)
 
 for (const path of [
   cssPath,
   scriptPath,
-  '/icons/icon.svg',
-  '/data/dictionary-it-de.wiktionary.json',
+  `${normalizedBase}icons/icon.svg`,
+  `${normalizedBase}data/dictionary-it-de.wiktionary.json`,
 ]) {
-  const file = join(root, 'dist', path.slice(1))
+  const relativePath = path.slice(normalizedBase.length)
+  const file = join(root, 'dist', relativePath)
   check((await stat(file)).size > 0, `${path} ist im Offlinepaket enthalten`)
 }
 
-const css = await read(`dist${cssPath}`)
+const css = await read(`dist/${cssPath.slice(normalizedBase.length)}`)
 check(
   !css.includes('fonts.googleapis.com'),
   'Darstellung benötigt keine Online-Schrift',

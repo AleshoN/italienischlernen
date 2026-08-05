@@ -1,8 +1,12 @@
-# Piano – Italienisch-Lernplattform 1.0.0
+# Piano – Italienisch-Lernplattform 1.0.1
 
-Piano ist eine kostenlose, offlinefähige Italienisch-Lernplattform für den Einstieg auf Niveau A0. Version 1.0.0 ist die erste stabile Veröffentlichung und enthält den vollständigen A0-Lernweg mit 13 Modulen, 84 Lerneinheiten, 168 interaktiven Aufgaben, 13 Modultests, einer A0-Abschlussprüfung, 747 kuratierten Kurswörtern und -wendungen sowie dem allgemeinen offenen Wörterbuch mit 16.707 italienischen Wortformen.
+Piano ist eine kostenlose, offlinefähige Italienisch-Lernplattform für den Einstieg auf Niveau A0. Version 1.0.1 macht die stabile A0-Anwendung dauerhaft über GitHub Pages verfügbar. Enthalten sind der vollständige A0-Lernweg mit 13 Modulen, 84 Lerneinheiten, 168 interaktiven Aufgaben, 13 Modultests, einer A0-Abschlussprüfung, 747 kuratierten Kurswörtern und -wendungen sowie das allgemeine offene Wörterbuch mit 16.707 italienischen Wortformen.
 
 Das zuvor erprobte Audiosystem bleibt auf ausdrücklichen Nutzerwunsch entfernt. Aussprache- und Dialoginhalte sind deshalb als klare Lautregeln, Beispiele und lesbare Dialogsituationen umgesetzt.
+
+## Direkt online lernen
+
+Die aktuelle Version läuft unter [aleshon.github.io/italienischlernen](https://aleshon.github.io/italienischlernen/). Nach jeder freigegebenen Änderung auf dem Hauptzweig prüft und aktualisiert GitHub diese Seite automatisch. Die Adresse bleibt gleich; eine erneute Pages-Einrichtung ist nicht nötig.
 
 ## Startanleitung für Anfänger
 
@@ -43,13 +47,14 @@ Nach jedem Modul steht ein eigener Test bereit. Fehler, schwierige Wörter und s
 - `npm test` – automatisierte Funktions- und Datenprüfungen
 - `npm run lint` – statische Quellcodeprüfung
 - `npm run format:check` – Formatierungsprüfung
+- `npm run build:pages` – Produktionsbuild für die öffentliche GitHub-Pages-Adresse
 - `npm run dictionary:import` – offenes Wörterbuch aus der dokumentierten Quelle neu erzeugen
 - `npm run release:verify` – erzeugtes Offline- und Releasepaket prüfen
 - `npm run patch:import -- <patch.zip> --target <Piano-Ordner>` – ein Patchpaket prüfen, sichern und installieren
 
 ## Datenspeicherung und Offlinebetrieb
 
-Abschlüsse, Lesezeichen, Verlauf, Übungsversuche, Testergebnisse, Favoriten, persönliche Wortlisten, schwierige Inhalte und Wiederholungstermine werden ausschließlich im aktuellen Browserprofil in IndexedDB gespeichert. Vorhandener Fortschritt aus älteren Versionen bleibt bei der Aktualisierung auf 1.0.0 erhalten. Es gibt kein Konto, keine Telemetrie und keine kostenpflichtige API.
+Abschlüsse, Lesezeichen, Verlauf, Übungsversuche, Testergebnisse, Favoriten, persönliche Wortlisten, schwierige Inhalte und Wiederholungstermine werden ausschließlich im aktuellen Browserprofil in IndexedDB gespeichert. Vorhandener Fortschritt aus älteren Versionen bleibt bei der Aktualisierung auf 1.0.1 erhalten. Es gibt kein Konto, keine Telemetrie und keine kostenpflichtige API.
 
 Im Bereich **Daten** kann der gesamte Lernstand als lesbare JSON-Datei heruntergeladen und später wiederhergestellt werden. Eine Sicherung wird vollständig geprüft, bevor sie den aktuellen lokalen Lernstand ersetzt. Vor einem Browserwechsel, dem Löschen von Websitedaten oder einem Programmupdate sollte eine solche Datei gespeichert werden.
 
@@ -80,6 +85,6 @@ Zusätzlich zu den 747 kuratierten Kurseinträgen enthält das Datenpaket 16.707
 - Ein echter Screenreader und ein manuell eingestellter Browserzoom von 200 Prozent konnten in dieser Umgebung nicht geprüft werden; Semantik, Fokusregeln, reduzierte Bewegung und zentrale Kontraste wurden automatisiert beziehungsweise im Browser kontrolliert.
 - Keine Wortliste kann eine lebende Sprache endgültig vollständig abbilden. Fachwörter, Eigennamen und sehr neue Wörter können im offenen Bestand fehlen.
 - Die praktische Kaikki-JSONL-Ausgabe ist vom Anbieter als veraltet markiert; der Import ist deshalb in einem eigenen Skript gekapselt.
-- Eine tatsächliche GitHub-Veröffentlichung wurde nicht ausgelöst, weil dieser lokale Projektordner keinem GitHub-Repository zugeordnet ist. Workflow, Releasehinweise und Pakete sind vorbereitet.
+- Der Lernstand bleibt an das jeweilige Browserprofil und die jeweilige Website-Adresse gebunden. Vor einem Browser- oder Gerätewechsel sollte im Bereich **Daten** eine Sicherung heruntergeladen und auf der Zielseite wiederhergestellt werden.
 
 Die tatsächlich ausgeführten Prüfungen stehen in [TESTS.md](./TESTS.md). Änderungen dieser Version stehen in [CHANGELOG.md](./CHANGELOG.md).

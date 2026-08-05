@@ -1,11 +1,12 @@
 {
   "name": "italienisch-lernplattform",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:pages": "tsc -b && vite build --mode pages",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -13,7 +14,8 @@
     "format:check": "prettier --check .",
     "dictionary:import": "node scripts/import-open-dictionary.mjs",
     "patch:import": "node scripts/import-patch.mjs",
-    "release:verify": "node scripts/verify-release.mjs"
+    "release:verify": "node scripts/verify-release.mjs",
+    "release:verify:pages": "node scripts/verify-release.mjs /italienischlernen/"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",

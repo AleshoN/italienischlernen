@@ -137,6 +137,6 @@ export function parseProgressBackup(serialized: string): UserProgress {
     ...value.progress,
     settings: { theme: value.progress.settings.theme },
     appVersion: __APP_VERSION__,
-    contentVersion: __APP_VERSION__,
+    contentVersion: __CONTENT_VERSION__,
   }
 }

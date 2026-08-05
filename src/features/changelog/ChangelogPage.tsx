@@ -1,7 +1,19 @@
 const releases = [
   {
-    version: '1.0.0',
+    version: '1.0.1',
     current: true,
+    date: '6. August 2026',
+    dateTime: '2026-08-06',
+    items: [
+      'Öffentliche Website über GitHub Pages unter einer dauerhaften Adresse',
+      'Automatische Neuveröffentlichung nach jeder freigegebenen Änderung auf dem Hauptzweig',
+      'Korrekte PWA-, Service-Worker-, Wörterbuch- und Offlinepfade im Pages-Unterordner',
+      'Unveränderter A0-Kursbestand und verlustfreie Übernahme lokaler Lernstände',
+      'Eigene Build- und Releaseprüfungen für die öffentliche Pages-Version',
+    ],
+  },
+  {
+    version: '1.0.0',
     date: '6. August 2026',
     dateTime: '2026-08-06',
     items: [
