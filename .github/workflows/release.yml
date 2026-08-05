@@ -1,0 +1,46 @@
+name: Geprüftes Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm run lint
+      - run: pnpm run format:check
+      - run: pnpm run build
+      - run: pnpm run release:verify
+      - name: Releasepaket erstellen
+        shell: bash
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          zip -r "piano-italienisch-${VERSION}.zip" \
+            .github public scripts src \
+            CHANGELOG.md OPEN_DATA.md README.md RELEASE_NOTES_1.0.0.md TESTS.md \
+            eslint.config.js index.html package.json pnpm-lock.yaml \
+            tsconfig.app.json tsconfig.json tsconfig.node.json vite.config.ts \
+            dist
+      - name: GitHub Release veröffentlichen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create "$GITHUB_REF_NAME"
+          "piano-italienisch-${GITHUB_REF_NAME#v}.zip"
+          --title "Piano ${GITHUB_REF_NAME#v}"
+          --notes-file RELEASE_NOTES_1.0.0.md
