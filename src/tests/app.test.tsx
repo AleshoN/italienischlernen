@@ -446,7 +446,7 @@ describe('Datenintegrität und Migration', () => {
     expect(restored.settings).toEqual({ theme: 'system' })
   })
 
-  it('aktualisiert einen vollständigen 0.9-Lernstand verlustfrei auf 1.0', async () => {
+  it('aktualisiert einen vollständigen 0.9-Lernstand verlustfrei auf 1.0.1', async () => {
     const previous = {
       ...initialProgress,
       completedLessonIds: ['lesson.it.a0.02.01'],
@@ -465,7 +465,7 @@ describe('Datenintegrität und Migration', () => {
       difficultItems: previous.difficultItems,
       favoriteWordIds: previous.favoriteWordIds,
       lessonScores: previous.lessonScores,
-      appVersion: '1.0.0',
+      appVersion: '1.0.1',
       contentVersion: '1.0.0',
     })
   })

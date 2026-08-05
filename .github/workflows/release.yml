@@ -15,11 +15,11 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
         with:
           version: 10
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: pnpm
@@ -35,7 +35,7 @@ jobs:
           VERSION="${{ inputs.version }}"
           zip -r "piano-italienisch-${VERSION}.zip" \
             .github public scripts src \
-            CHANGELOG.md OPEN_DATA.md README.md RELEASE_NOTES_1.0.0.md TESTS.md \
+            CHANGELOG.md OPEN_DATA.md README.md RELEASE_NOTES_*.md TESTS.md \
             eslint.config.js index.html package.json pnpm-lock.yaml \
             tsconfig.app.json tsconfig.json tsconfig.node.json vite.config.ts \
             dist
@@ -48,4 +48,4 @@ jobs:
           "piano-italienisch-${VERSION}.zip"
           --target main
           --title "Piano ${VERSION}"
-          --notes-file RELEASE_NOTES_1.0.0.md
+          --notes-file "RELEASE_NOTES_${VERSION}.md"

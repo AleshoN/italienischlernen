@@ -22,8 +22,8 @@ export const initialProgress: UserProgress = {
   activityHistory: [],
   favoriteWordIds: [],
   wordLists: [],
-  appVersion: '1.0.0',
-  contentVersion: '1.0.0',
+  appVersion: __APP_VERSION__,
+  contentVersion: __CONTENT_VERSION__,
 }
 
 type LegacySettings = { theme: 'light' | 'dark' | 'system' }
@@ -66,8 +66,8 @@ export function migrateProgress(
     wordLists,
     reviewSchedule: migrateLegacyReviewSchedule(raw.reviewSchedule),
     settings: { theme: raw.settings.theme },
-    appVersion: '1.0.0',
-    contentVersion: '1.0.0',
+    appVersion: __APP_VERSION__,
+    contentVersion: __CONTENT_VERSION__,
   }
 }
 
@@ -116,15 +116,15 @@ export async function loadProgress(): Promise<UserProgress> {
     return migrated
   }
   if (
-    raw.appVersion !== '1.0.0' ||
-    raw.contentVersion !== '1.0.0' ||
+    raw.appVersion !== __APP_VERSION__ ||
+    raw.contentVersion !== __CONTENT_VERSION__ ||
     Object.keys(raw.settings).length !== 1
   ) {
     const updated = {
       ...raw,
       settings: { theme: raw.settings.theme },
-      appVersion: '1.0.0',
-      contentVersion: '1.0.0',
+      appVersion: __APP_VERSION__,
+      contentVersion: __CONTENT_VERSION__,
     }
     await saveProgress(updated)
     return updated

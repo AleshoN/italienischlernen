@@ -1,21 +1,23 @@
-const CACHE_NAME = 'piano-app-v1.0.0-r1'
+const CACHE_NAME = 'piano-app-v1.0.1-r1'
+const scopedUrl = (path) => new URL(path, self.registration.scope).toString()
+const INDEX_URL = scopedUrl('index.html')
 const APP_SHELL = [
-  '/',
-  '/index.html',
-  '/manifest.webmanifest',
-  '/icons/icon.svg',
-  '/data/dictionary-it-de.wiktionary.json',
+  scopedUrl('./'),
+  INDEX_URL,
+  scopedUrl('manifest.webmanifest'),
+  scopedUrl('icons/icon.svg'),
+  scopedUrl('data/dictionary-it-de.wiktionary.json'),
 ]
 
 async function cacheAppShell() {
   const cache = await caches.open(CACHE_NAME)
   await cache.addAll(APP_SHELL)
-  const index = await cache.match('/index.html')
+  const index = await cache.match(INDEX_URL)
   if (!index) throw new Error('App-Shell konnte nicht geladen werden.')
   const html = await index.text()
-  const assets = [...html.matchAll(/(?:src|href)="(\/assets\/[^"?#]+)"/g)].map(
-    (match) => match[1],
-  )
+  const assets = [
+    ...html.matchAll(/(?:src|href)="([^"?#]*\/assets\/[^"?#]+)"/g),
+  ].map((match) => new URL(match[1], self.location.origin).toString())
   await cache.addAll([...new Set(assets)])
 }
 
@@ -45,7 +47,7 @@ self.addEventListener('fetch', (event) => {
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request).catch(async () => {
-        const fallback = await caches.match('/index.html')
+        const fallback = await caches.match(INDEX_URL)
         return fallback || Response.error()
       }),
     )

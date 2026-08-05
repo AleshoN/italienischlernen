@@ -2,6 +2,18 @@
 
 Dieses Protokoll enthält ausschließlich tatsächlich ausgeführte Prüfungen; nicht ausgeführte Ergebnisse werden nicht behauptet.
 
+## GitHub Pages / Version 1.0.1 – 2026-08-06
+
+- `pnpm test` – erfolgreich: 1 Testdatei, 25 Tests bestanden. Dabei wurden der vollständige A0-Daten- und Funktionsbestand, IndexedDB-Speicherung, verlustfreie Aktualisierung der App-Version auf 1.0.1 bei unveränderter Inhaltsversion 1.0.0 sowie Export und Import der Lernstandsicherung geprüft.
+- `pnpm run lint` – erfolgreich: ESLint ohne Fehler oder Warnungen.
+- `pnpm run format:check` – erfolgreich: alle einbezogenen Dateien entsprechen der Prettier-Formatierung.
+- `pnpm run build` und `pnpm run release:verify` – erfolgreich: 60 Module transformiert und 23 Prüfungen für den normalen Produktions- und Offline-Build bestanden. Das JavaScript-Hauptpaket ist rund 370,1 kB groß, gzip-komprimiert rund 116,5 kB.
+- `pnpm run build:pages` und `pnpm run release:verify:pages` – erfolgreich: 60 Module transformiert und 23 Prüfungen für den Unterpfad `/italienischlernen/` bestanden. Geprüft wurden unter anderem App-Version, Cachekennung, Manifest, relative PWA-Pfade, CSS-/JavaScript-Basispfad, Wörterbuch und Offlinepaket.
+- Browserprüfung des Pages-Unterpfads – erfolgreich: Dashboard, sichtbare Version 1.0.1, Navigation und Wörterbuch mit 17.106 kombinierten beziehungsweise 16.707 offenen Einträgen wurden aus einer realistisch unter `/italienischlernen/` bereitgestellten Produktionsausgabe geladen. Manifest, Symbol, CSS und JavaScript verwiesen auf denselben Unterpfad; es wurden keine Browserfehler protokolliert.
+- Offline-Prüfung des Pages-Unterpfads – erfolgreich: Nach dem ersten Online-Aufruf wurde ausschließlich der dafür gestartete lokale Webserver beendet. Die Wörterbuchansicht ließ sich anschließend unter derselben Unterpfad-Adresse vollständig neu laden; Überschrift, Eintragsanzahl und Version 1.0.1 blieben sichtbar und es wurden keine Browserfehler protokolliert.
+
+Der erste Aufruf der lokalen Prüfwerkzeuge konnte nicht starten, weil Node.js in dieser Sitzung noch nicht im sichtbaren Programmpfad lag. Nach Einbindung der vorhandenen Projektlaufzeit wurden alle oben aufgeführten Prüfungen neu und erfolgreich ausgeführt. Die tatsächliche GitHub-Actions-Ausführung, die öffentliche Pages-Adresse und das Releasepaket werden erst nach ihrer wirklichen Veröffentlichung als geprüft ergänzt.
+
 ## Phase 8 / Version 1.0.0 – 2026-08-06
 
 - `pnpm test` – erfolgreich: 1 Testdatei, 25 Tests bestanden. Zusätzlich zum vollständigen A0-Daten- und Funktionsbestand wurden die verlustfreie Aktualisierung eines belegten 0.9.0-Lernstands auf 1.0.0, Export und Import einer gültigen Lernstandsicherung, Ablehnung eines fremden Sicherungsformats, semantischer Versionsvergleich und Theme-Auflösung geprüft.

@@ -2,6 +2,28 @@
 
 Alle wichtigen Änderungen werden hier dokumentiert.
 
+## [1.0.1] – 2026-08-06
+
+### Hinzugefügt
+
+- Automatischer GitHub-Pages-Workflow für jeden freigegebenen Stand auf `main` sowie für manuell ausgelöste Veröffentlichungen.
+- Eigener Pages-Produktionsbuild und eine Releaseprüfung für den Repository-Unterpfad `/italienischlernen/`.
+- Öffentliche, installierbare Web-App unter `https://aleshon.github.io/italienischlernen/`.
+
+### Behoben
+
+- Manifest, Appsymbol, Service Worker, Offline-Start, erzeugte Programmdateien und Wörterbuch werden nun sowohl an der Domainwurzel als auch unter dem GitHub-Pages-Unterpfad korrekt geladen.
+- Importierte Lernstandsicherungen behalten die Inhaltsversion des A0-Kurses bei, während nur die technische App-Version aktualisiert wird.
+
+### Geändert
+
+- App- und Cacheversion auf 1.0.1 erhöht; Inhaltsversion 1.0.0, Datenschema 6 und alle dauerhaften IDs bleiben unverändert kompatibel.
+- Der Release-Workflow verwendet automatisch die zur angeforderten Version gehörenden Releasehinweise.
+
+### Status
+
+Die stabile A0-Anwendung ist für GitHub Pages eingerichtet. Künftige freigegebene Änderungen auf `main` werden automatisch geprüft, gebaut und auf derselben Adresse veröffentlicht.
+
 ## [1.0.0] – 2026-08-06
 
 ### Hinzugefügt
