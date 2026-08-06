@@ -20,7 +20,7 @@ const serviceWorker = await read('dist/sw.js')
 const cssPath = index.match(/href="([^"?]*\/assets\/[^"?]+\.css)"/)?.[1]
 const scriptPath = index.match(/src="([^"?]*\/assets\/[^"?]+\.js)"/)?.[1]
 
-check(packageJson.version === '1.0.1', 'Paketversion ist 1.0.1')
+check(packageJson.version === '1.1.0', 'Paketversion ist 1.1.0')
 check(
   manifest.start_url === './#/' && manifest.scope === './',
   'PWA-Start und Gültigkeitsbereich sind installationsunabhängig',
@@ -31,7 +31,7 @@ check(
   'PWA-Symbol ist eingetragen',
 )
 check(
-  serviceWorker.includes('piano-app-v1.0.1-r1'),
+  serviceWorker.includes('piano-app-v1.1.0-r1'),
   'Service-Worker verwendet den Releasecache',
 )
 check(

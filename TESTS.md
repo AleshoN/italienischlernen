@@ -2,6 +2,20 @@
 
 Dieses Protokoll enthält ausschließlich tatsächlich ausgeführte Prüfungen; nicht ausgeführte Ergebnisse werden nicht behauptet.
 
+## A1-Planungsphase / Version 1.1.0 – 2026-08-06
+
+- `pnpm test` – erfolgreich: 1 Testdatei, 25 Tests bestanden. Dabei wurden der vollständige unveränderte A0-Daten- und Funktionsbestand, IndexedDB-Speicherung sowie die verlustfreie Aktualisierung eines belegten 0.9.0-Lernstands auf App-Version 1.1.0 bei unveränderter Inhaltsversion 1.0.0 geprüft.
+- `pnpm run lint` – erfolgreich: ESLint ohne Fehler oder Warnungen.
+- `pnpm run format:check` – erfolgreich: Nach Formatierung des erweiterten Testprotokolls entsprechen alle einbezogenen Dateien der Prettier-Formatierung.
+- `pnpm run build` und `pnpm run release:verify` – erfolgreich: 60 Module transformiert und 23 Prüfungen für den normalen Produktions- und Offline-Build bestanden. Das JavaScript-Hauptpaket ist rund 370,7 kB groß, gzip-komprimiert rund 116,8 kB.
+- `pnpm run build:pages` und `pnpm run release:verify:pages` – erfolgreich: 60 Module transformiert und 23 Prüfungen für den GitHub-Pages-Unterpfad `/italienischlernen/` bestanden.
+- A1-Strukturprüfung – erfolgreich: exakt 12 Modulüberschriften, 72 Lektionsüberschriften, 12 Modultests, vier dokumentierte Quellen-IDs und keine erkannten Zeichenkodierungsfehler in den drei neuen A1-Dokumenten.
+- Lokale Browserprüfung des Pages-Builds – erfolgreich: Dashboard und Seitenleiste zeigten Version 1.1.0; die Changelog-Ansicht markierte 1.1.0 als aktuell und zeigte den A1-Umfang, die Roadmap, dauerhafte IDs, Quellenregeln, Audio-Freigabeschranke sowie die unveränderte Inhaltsversion 1.0.0. Es wurden keine Browserwarnungen oder -fehler protokolliert.
+- Patch-Importtest – erfolgreich: Ein entpacktes Vollrelease 1.0.1 bestand den Trockenlauf und wurde anschließend mit `patch-1.0.1-to-1.1.0.zip` auf 1.1.0 aktualisiert. 21 Payload-Dateien wurden per SHA-256 geprüft. Die alte JavaScript-Datei wurde entfernt, die neue eingesetzt, eine nicht zum Programm gehörende Testdatei blieb erhalten und die aktualisierte Installation bestand alle 23 Releaseprüfungen.
+- Releasepaket-Prüfung – erfolgreich: Das entpackte Vollpaket 1.1.0 bestand alle 23 Releaseprüfungen. 85 Dateien wurden kontrolliert; A1-Lehrplan, A1-Roadmap, A1-Quellenregeln, Produktionsbuild, Wörterbuch, Releasehinweise und vollständiger Quellcode sind enthalten. `sources/` und `node_modules/` fehlen wie vorgesehen.
+
+Der erste Formatierungscheck meldete ausschließlich die bereits bestehende Datei `TESTS.md` als nicht passend zur aktuell installierten Prettier-Formatierung. Die Datei wurde nach Eintragung der tatsächlichen Ergebnisse formatiert; die anschließend wiederholte vollständige Formatierungsprüfung war erfolgreich. Die erste lokale Pages-Vorschau wurde versehentlich ohne Pages-Modus gestartet und lieferte deshalb an den Assetpfaden die HTML-Startseite. Der Testserver wurde im vorgesehenen Pages-Modus neu gestartet; danach wurden JavaScript, Oberfläche, Versionsanzeige und Changelog erfolgreich geprüft. Dies war eine Testserver-Einstellung und keine Änderung am App-Code. Beim ersten Erzeugen des neuen Patcharchivs stand die verwendete relative Pfadfunktion in der lokalen PowerShell-Version nicht zur Verfügung; der dadurch unvollständige, noch nicht veröffentlichte Entwurf wurde verworfen. Die Prüfsummen wurden mit einer kompatiblen Pfadermittlung neu erzeugt und nur dieses reparierte Paket wurde erfolgreich importiert und geprüft.
+
 ## GitHub Pages / Version 1.0.1 – 2026-08-06
 
 - `pnpm test` – erfolgreich: 1 Testdatei, 25 Tests bestanden. Dabei wurden der vollständige A0-Daten- und Funktionsbestand, IndexedDB-Speicherung, verlustfreie Aktualisierung der App-Version auf 1.0.1 bei unveränderter Inhaltsversion 1.0.0 sowie Export und Import der Lernstandsicherung geprüft.

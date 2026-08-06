@@ -35,7 +35,8 @@ jobs:
           VERSION="${{ inputs.version }}"
           zip -r "piano-italienisch-${VERSION}.zip" \
             .github public scripts src \
-            CHANGELOG.md OPEN_DATA.md README.md RELEASE_NOTES_*.md TESTS.md \
+            A1_ROADMAP.md CHANGELOG.md CONTENT_SOURCES_A1.md CURRICULUM_A1.md \
+            OPEN_DATA.md README.md RELEASE_NOTES_*.md TESTS.md \
             eslint.config.js index.html package.json pnpm-lock.yaml \
             tsconfig.app.json tsconfig.json tsconfig.node.json vite.config.ts \
             dist

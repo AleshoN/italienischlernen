@@ -1,7 +1,20 @@
 const releases = [
   {
-    version: '1.0.1',
+    version: '1.1.0',
     current: true,
+    date: '6. August 2026',
+    dateTime: '2026-08-06',
+    items: [
+      'Verbindlicher A1-Lehrplan mit 12 Modulen und 72 aufeinander aufbauenden Lektionen',
+      'Gestufte Umsetzungsroadmap bis zum stabilen A1-Gesamtkurs in Version 2.0.0',
+      'Dauerhafte A1-IDs sowie Daten-, Migrations-, Prüfungs- und Qualitätsregeln',
+      'Dokumentierte offizielle Referenzquellen von Europarat, CILS und CELI',
+      'Klare Audio-Freigabeschranke: keine ungeeignete Systemstimme und keine behauptete Hörprüfung ohne freigegebenes italienisches Material',
+      'A0-Kurs und Inhaltsversion 1.0.0 bleiben unverändert nutzbar',
+    ],
+  },
+  {
+    version: '1.0.1',
     date: '6. August 2026',
     dateTime: '2026-08-06',
     items: [
