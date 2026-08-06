@@ -2,6 +2,25 @@
 
 Alle wichtigen Änderungen werden hier dokumentiert.
 
+## [1.1.0] – 2026-08-06
+
+### Hinzugefügt
+
+- Verbindlicher A1-Lehrplan mit 12 Modulen, 72 Lektionen, 12 Modultests und einer klar abgegrenzten Abschlussprüfung.
+- Eigene A1-Umsetzungsroadmap von der Mehrkurs-Grundlage und einer Pilotlektion bis zum stabilen A1-Gesamtkurs in Version 2.0.0.
+- Dauerhafte ID-Muster sowie verbindliche Daten-, Migrations-, Prüfungs- und Freigaberegeln für A1.
+- Dokumentierte offizielle Referenzquellen von Europarat, CILS und CELI samt redaktionellen und urheberrechtlichen Regeln.
+- Klare Audio-Freigabeschranke für echtes italienisches, lizenziertes und offlinefähiges Material.
+
+### Geändert
+
+- App- und Cacheversion auf 1.1.0 erhöht; Inhaltsversion 1.0.0, Datenschema 6, A0-Kurs und alle bestehenden IDs bleiben unverändert kompatibel.
+- Der Release-Workflow nimmt die neuen A1-Planungsdokumente in vollständige Pakete auf.
+
+### Status
+
+Die verbindliche A1-Planungsphase ist abgeschlossen. Version 1.1.0 enthält noch keine freigeschaltete A1-Lektion. Als Nächstes folgt ausschließlich die Mehrkurs-Grundlage mit A1-Diagnose und genau einer Pilotlektion.
+
 ## [1.0.1] – 2026-08-06
 
 ### Hinzugefügt

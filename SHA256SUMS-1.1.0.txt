@@ -1,0 +1,2 @@
+058e94d86829dd7ce6bc443b62a8b75d8edd82e24122a98854a110c9c2253793  piano-italienisch-1.1.0.zip
+faad83334ff2afefbd87133e1c1bc1dc77c55bf36b234a9ac50cdfbe3c25b3cc  patch-1.0.1-to-1.1.0.zip

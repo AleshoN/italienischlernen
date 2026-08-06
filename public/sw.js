@@ -1,4 +1,4 @@
-const CACHE_NAME = 'piano-app-v1.0.1-r1'
+const CACHE_NAME = 'piano-app-v1.1.0-r1'
 const scopedUrl = (path) => new URL(path, self.registration.scope).toString()
 const INDEX_URL = scopedUrl('index.html')
 const APP_SHELL = [

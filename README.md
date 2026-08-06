@@ -1,6 +1,6 @@
-# Piano – Italienisch-Lernplattform 1.0.1
+# Piano – Italienisch-Lernplattform 1.1.0
 
-Piano ist eine kostenlose, offlinefähige Italienisch-Lernplattform für den Einstieg auf Niveau A0. Version 1.0.1 macht die stabile A0-Anwendung dauerhaft über GitHub Pages verfügbar. Enthalten sind der vollständige A0-Lernweg mit 13 Modulen, 84 Lerneinheiten, 168 interaktiven Aufgaben, 13 Modultests, einer A0-Abschlussprüfung, 747 kuratierten Kurswörtern und -wendungen sowie das allgemeine offene Wörterbuch mit 16.707 italienischen Wortformen.
+Piano ist eine kostenlose, offlinefähige Italienisch-Lernplattform. Version 1.1.0 enthält weiterhin den vollständigen stabilen A0-Lernweg mit 13 Modulen, 84 Lerneinheiten, 168 interaktiven Aufgaben, 13 Modultests, einer A0-Abschlussprüfung, 747 kuratierten Kurswörtern und -wendungen sowie das allgemeine offene Wörterbuch mit 16.707 italienischen Wortformen. Zusätzlich ist A1 nun vollständig und verbindlich geplant; neue A1-Lektionen werden ab Version 1.2.0 schrittweise umgesetzt.
 
 Das zuvor erprobte Audiosystem bleibt auf ausdrücklichen Nutzerwunsch entfernt. Aussprache- und Dialoginhalte sind deshalb als klare Lautregeln, Beispiele und lesbare Dialogsituationen umgesetzt.
 
@@ -42,6 +42,12 @@ Produktionsnahe Vorschau:
 
 Nach jedem Modul steht ein eigener Test bereit. Fehler, schwierige Wörter und schwache Grammatikthemen fließen automatisch in den lokalen Wiederholungsplan ein.
 
+## A1 ist gestartet
+
+Die A1-Planungsphase ist abgeschlossen. Der verbindliche [A1-Lehrplan](./CURRICULUM_A1.md) umfasst 12 Module, 72 Lektionen, 12 Modultests und eine A1-Abschlussprüfung. Die [A1-Umsetzungsroadmap](./A1_ROADMAP.md) legt die überprüfbaren Zwischenversionen bis zum vollständigen A1-Kurs in Version 2.0.0 fest. Die fachlichen Grundlagen und Redaktionsregeln stehen in [CONTENT_SOURCES_A1.md](./CONTENT_SOURCES_A1.md).
+
+Version 1.2.0 schafft als Nächstes die Mehrkurs-Grundlage, übernimmt vorhandenen A0-Fortschritt unverändert und ergänzt genau eine A1-Pilotlektion. Die übrigen A1-Lektionen folgen erst nach dieser technischen und didaktischen Abnahme.
+
 ## Weitere Befehle
 
 - `npm test` – automatisierte Funktions- und Datenprüfungen
@@ -54,7 +60,7 @@ Nach jedem Modul steht ein eigener Test bereit. Fehler, schwierige Wörter und s
 
 ## Datenspeicherung und Offlinebetrieb
 
-Abschlüsse, Lesezeichen, Verlauf, Übungsversuche, Testergebnisse, Favoriten, persönliche Wortlisten, schwierige Inhalte und Wiederholungstermine werden ausschließlich im aktuellen Browserprofil in IndexedDB gespeichert. Vorhandener Fortschritt aus älteren Versionen bleibt bei der Aktualisierung auf 1.0.1 erhalten. Es gibt kein Konto, keine Telemetrie und keine kostenpflichtige API.
+Abschlüsse, Lesezeichen, Verlauf, Übungsversuche, Testergebnisse, Favoriten, persönliche Wortlisten, schwierige Inhalte und Wiederholungstermine werden ausschließlich im aktuellen Browserprofil in IndexedDB gespeichert. Vorhandener Fortschritt aus älteren Versionen bleibt bei der Aktualisierung auf 1.1.0 erhalten. Es gibt kein Konto, keine Telemetrie und keine kostenpflichtige API.
 
 Im Bereich **Daten** kann der gesamte Lernstand als lesbare JSON-Datei heruntergeladen und später wiederhergestellt werden. Eine Sicherung wird vollständig geprüft, bevor sie den aktuellen lokalen Lernstand ersetzt. Vor einem Browserwechsel, dem Löschen von Websitedaten oder einem Programmupdate sollte eine solche Datei gespeichert werden.
 
@@ -78,6 +84,7 @@ Zusätzlich zu den 747 kuratierten Kurseinträgen enthält das Datenpaket 16.707
 
 ## Bekannte Einschränkungen
 
+- Version 1.1.0 plant A1 verbindlich, schaltet aber noch keine A1-Lektion frei. Der nutzbare Kursbestand bleibt in dieser Version A0.
 - Audiosystem, Aussprachewiedergabe und Mikrofonaufnahme sind auf Nutzerwunsch vorläufig nicht enthalten. Hör- und Dialogziele werden in dieser Version über Transkripte und Lautleseübungen angenähert.
 - Die Kursinhalte wurden strukturell, sprachlich und durch automatisierte Querverweisprüfungen kontrolliert; eine unabhängige Prüfung jeder Einheit durch muttersprachliche Lehrkräfte wurde in dieser Umgebung nicht durchgeführt.
 - Die automatisch erzeugten Standardübungen konzentrieren sich auf Erkennen und aktives Abrufen. Freie mündliche Aussprache und offene Texte können ohne Audio beziehungsweise Lehrkraft nicht zuverlässig bewertet werden.
